@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Roblox Code Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ROBLOX <span>CODE SHOP</span>
+    </div>
+
+
+    <!-- ยังไม่ได้ Login -->
+
+    <div
+        id="guestButtons"
+        class="guest-buttons"
+    >
+
+        <a
+            href="login.html"
+            class="btn-login"
+        >
+            LOGIN
+        </a>
+
+
+        <a
+            href="register.html"
+            class="btn-register"
+        >
+            REGISTER
+        </a>
+
+    </div>
+
+
+    <!-- Login แล้ว -->
+
+    <div
+        id="userButtons"
+        class="user-buttons hidden"
+    >
+
+        <div class="user-info">
+            👤
+            <span id="usernameDisplay">
+                ลูกค้า
+            </span>
+        </div>
+
+
+        <div class="balance">
+            ⭐
+            <span id="balanceDisplay">
+                0
+            </span>
+        </div>
+
+
+        <button
+            class="btn-topup"
+            onclick="claimTrialPoints()"
+        >
+            🎁 รับแต้มทดลอง
+        </button>
+
+
+        <button
+            class="btn-history"
+            onclick="showHistory()"
+        >
+            ประวัติการซื้อ
+        </button>
+
+
+        <button
+            class="btn-logout"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ROBLOX DIGITAL SHOP
+        </div>
+
+
+        <h1>
+            ROBLOX
+            <span>CODE SHOP</span>
+        </h1>
+
+
+        <p>
+            ร้านจำหน่ายรหัสเกม Roblox
+            ราคาพิเศษ ใช้งานง่าย
+        </p>
+
+
+        <button
+            class="hero-button"
+            onclick="scrollToProducts()"
+        >
+            ดูสินค้า
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ACCOUNT
+========================= -->
+
+<section class="account-section">
+
+
+    <!-- Login แล้ว -->
+
+    <div
+        id="welcomeMessage"
+        class="hidden"
+    >
+
+        <div class="account-icon">
+            👤
+        </div>
+
+
+        <h2>
+            ยินดีต้อนรับ
+            <span id="welcomeUsername">
+                ลูกค้า
+            </span>
+        </h2>
+
+
+        <p>
+            แต้มปัจจุบันของคุณ
+        </p>
+
+
+        <div class="account-balance">
+            ⭐
+            <span id="accountBalance">
+                0
+            </span>
+            แต้ม
+        </div>
+
+
+        <button
+            class="trial-button"
+            onclick="claimTrialPoints()"
+        >
+            🎁 รับแต้มทดลองใช้ 100 แต้ม
+        </button>
+
+    </div>
+
+
+
+    <!-- ยังไม่ได้ Login -->
+
+    <div id="loginMessage">
+
+        <div class="account-icon">
+            🔐
+        </div>
+
+
+        <h2>
+            ยังไม่ได้เข้าสู่ระบบ
+        </h2>
+
+
+        <p>
+            Login เพื่อซื้อสินค้า
+            และรับแต้มทดลองใช้
+        </p>
+
+
+        <div class="login-actions">
+
+            <a href="login.html">
+                เข้าสู่ระบบ
+            </a>
+
+
+            <a href="register.html">
+                สมัครสมาชิก
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+    class="products-section"
+    id="products"
+>
+
+
+    <div class="section-title">
+
+        <div class="section-badge">
+            OUR PRODUCTS
+        </div>
+
+
+        <h2>
+            สินค้า
+        </h2>
+
+
+        <p>
+            เลือกรหัสที่ต้องการ
+        </p>
+
+    </div>
+
+
+
+    <div class="products-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                🎮
+            </div>
+
+
+            <h3>
+                Roblox Code 50
+            </h3>
+
+
+            <p>
+                รหัส Roblox มูลค่า 50 แต้ม
+            </p>
+
+
+            <div class="price">
+                ⭐ 50 แต้ม
+            </div>
+
+
+            <button
+                class="buy-button"
+                onclick="
+                    buyProduct(
+                        'Roblox Code 50',
+                        50
+                    )
+                "
+            >
+                ซื้อสินค้า
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                🔥
+            </div>
+
+
+            <h3>
+                Roblox Code 100
+            </h3>
+
+
+            <p>
+                รหัส Roblox มูลค่า 100 แต้ม
+            </p>
+
+
+            <div class="price">
+                ⭐ 100 แต้ม
+            </div>
+
+
+            <button
+                class="buy-button"
+                onclick="
+                    buyProduct(
+                        'Roblox Code 100',
+                        100
+                    )
+                "
+            >
+                ซื้อสินค้า
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-icon">
+                💎
+            </div>
+
+
+            <h3>
+                Roblox Code 250
+            </h3>
+
+
+            <p>
+                รหัส Roblox มูลค่า 250 แต้ม
+            </p>
+
+
+            <div class="price">
+                ⭐ 250 แต้ม
+            </div>
+
+
+            <button
+                class="buy-button"
+                onclick="
+                    buyProduct(
+                        'Roblox Code 250',
+                        250
+                    )
+                "
+            >
+                ซื้อสินค้า
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HISTORY MODAL
+========================= -->
+
+<div
+    id="historyBox"
+    class="history-box hidden"
+>
+
+    <div class="history-content">
+
+        <button
+            class="close-history"
+            onclick="closeHistory()"
+        >
+            ✕
+        </button>
+
+
+        <div class="modal-title">
+            ORDER HISTORY
+        </div>
+
+
+        <h2>
+            ประวัติการสั่งซื้อ
+        </h2>
+
+
+        <div id="historyList"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     CUSTOM NOTIFICATION
+========================= -->
+
+<div
+    id="notificationOverlay"
+    class="notification-overlay"
+>
+
+    <div class="notification-box">
+
+        <div
+            id="notificationIcon"
+            class="notification-icon"
+        >
+            ✓
+        </div>
+
+
+        <h2 id="notificationTitle">
+            สำเร็จ
+        </h2>
+
+
+        <div
+            id="notificationMessage"
+            class="notification-message"
+        ></div>
+
+
+        <button
+            class="notification-button"
+            onclick="closeNotification()"
+        >
+            ตกลง
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Roblox Code Shop
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
